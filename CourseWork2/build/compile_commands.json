@@ -1,0 +1,27 @@
+[
+{
+  "directory": "E:/Code/C++Games/OpenGL/GLUT_Project/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/STB_LIB.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp",
+  "file": "E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp"
+},
+{
+  "directory": "E:/Code/C++Games/OpenGL/GLUT_Project/build",
+  "command": "E:/MinGW/bin/gcc.exe  @CMakeFiles/CUSTOM_MATH_LIB.dir/includes_C.rsp -finput-charset=UTF-8 -g -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c",
+  "file": "E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c"
+},
+{
+  "directory": "E:/Code/C++Games/OpenGL/GLUT_Project/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/main.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp",
+  "file": "E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp"
+},
+{
+  "directory": "E:/Code/C++Games/OpenGL/GLUT_Project/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp",
+  "file": "E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp"
+},
+{
+  "directory": "E:/Code/C++Games/OpenGL/GLUT_Project/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp",
+  "file": "E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp"
+}
+]
