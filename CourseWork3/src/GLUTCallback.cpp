@@ -171,6 +171,7 @@ void GLUTCallback::mySubWinDisplay(void)
         switchModeButton->draw();
     }
 
+    // cout << "state: " << mCurDrawingState << "\n";
     switch (mCurDrawingState)
     {
         case EDrawingLine:
