@@ -1,6 +1,6 @@
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: \
- E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp \
- e:\code\c++games\opengl\glut_project\include\vendor\stb_image\stb_image.h \
+ E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp \
+ e:\code\cg-courseworks\coursework2\include\vendor\stb_image\stb_image.h \
  e:\mingw\include\stdio.h e:\mingw\include\_mingw.h \
  e:\mingw\include\msvcrtver.h e:\mingw\include\w32api.h \
  e:\mingw\include\sdkddkver.h \

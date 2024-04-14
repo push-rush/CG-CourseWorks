@@ -53,10 +53,10 @@ RM = E:/CMake/cmake-3.24.1-windows-x86_64/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:/Code/C++Games/OpenGL/GLUT_Project
+CMAKE_SOURCE_DIR = E:/Code/CG-CourseWorks/CourseWork2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:/Code/C++Games/OpenGL/GLUT_Project/build
+CMAKE_BINARY_DIR = E:/Code/CG-CourseWorks/CourseWork2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/STB_LIB.dir/depend.make
@@ -71,18 +71,18 @@ include CMakeFiles/STB_LIB.dir/flags.make
 
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: CMakeFiles/STB_LIB.dir/flags.make
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: CMakeFiles/STB_LIB.dir/includes_CXX.rsp
-CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp
+CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj: CMakeFiles/STB_LIB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -MF CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj.d -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj"
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -MF CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj.d -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp
 
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.i"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp > CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.i
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp > CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.i
 
 CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.s"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.s
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.s
 
 # Object files for target STB_LIB
 STB_LIB_OBJECTS = \
@@ -94,7 +94,7 @@ STB_LIB_EXTERNAL_OBJECTS =
 libSTB_LIB.a: CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj
 libSTB_LIB.a: CMakeFiles/STB_LIB.dir/build.make
 libSTB_LIB.a: CMakeFiles/STB_LIB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSTB_LIB.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSTB_LIB.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/STB_LIB.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/STB_LIB.dir/link.txt --verbose=$(VERBOSE)
 
@@ -107,6 +107,6 @@ CMakeFiles/STB_LIB.dir/clean:
 .PHONY : CMakeFiles/STB_LIB.dir/clean
 
 CMakeFiles/STB_LIB.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/STB_LIB.dir/DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/STB_LIB.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/STB_LIB.dir/depend
 

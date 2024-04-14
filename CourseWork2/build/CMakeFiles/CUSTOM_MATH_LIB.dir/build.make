@@ -53,10 +53,10 @@ RM = E:/CMake/cmake-3.24.1-windows-x86_64/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:/Code/C++Games/OpenGL/GLUT_Project
+CMAKE_SOURCE_DIR = E:/Code/CG-CourseWorks/CourseWork2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:/Code/C++Games/OpenGL/GLUT_Project/build
+CMAKE_BINARY_DIR = E:/Code/CG-CourseWorks/CourseWork2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CUSTOM_MATH_LIB.dir/depend.make
@@ -71,18 +71,18 @@ include CMakeFiles/CUSTOM_MATH_LIB.dir/flags.make
 
 CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj: CMakeFiles/CUSTOM_MATH_LIB.dir/flags.make
 CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj: CMakeFiles/CUSTOM_MATH_LIB.dir/includes_C.rsp
-CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj: E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c
+CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj: E:/Code/CG-CourseWorks/CourseWork2/src/CusMath.c
 CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj: CMakeFiles/CUSTOM_MATH_LIB.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj"
-	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj -MF CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj.d -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj"
+	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj -MF CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj.d -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj -c E:/Code/CG-CourseWorks/CourseWork2/src/CusMath.c
 
 CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.i"
-	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c > CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.i
+	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:/Code/CG-CourseWorks/CourseWork2/src/CusMath.c > CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.i
 
 CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.s"
-	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.s
+	E:/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:/Code/CG-CourseWorks/CourseWork2/src/CusMath.c -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.s
 
 # Object files for target CUSTOM_MATH_LIB
 CUSTOM_MATH_LIB_OBJECTS = \
@@ -94,7 +94,7 @@ CUSTOM_MATH_LIB_EXTERNAL_OBJECTS =
 libCUSTOM_MATH_LIB.a: CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj
 libCUSTOM_MATH_LIB.a: CMakeFiles/CUSTOM_MATH_LIB.dir/build.make
 libCUSTOM_MATH_LIB.a: CMakeFiles/CUSTOM_MATH_LIB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libCUSTOM_MATH_LIB.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libCUSTOM_MATH_LIB.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/CUSTOM_MATH_LIB.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CUSTOM_MATH_LIB.dir/link.txt --verbose=$(VERBOSE)
 
@@ -107,6 +107,6 @@ CMakeFiles/CUSTOM_MATH_LIB.dir/clean:
 .PHONY : CMakeFiles/CUSTOM_MATH_LIB.dir/clean
 
 CMakeFiles/CUSTOM_MATH_LIB.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/CUSTOM_MATH_LIB.dir/DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/CUSTOM_MATH_LIB.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CUSTOM_MATH_LIB.dir/depend
 

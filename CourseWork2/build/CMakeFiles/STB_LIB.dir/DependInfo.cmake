@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Code/C++Games/OpenGL/GLUT_Project/src/stb_image/stb_image.cpp" "CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj" "gcc" "CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj.d"
+  "E:/Code/CG-CourseWorks/CourseWork2/src/stb_image/stb_image.cpp" "CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj" "gcc" "CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj.d"
   )
 
 # Targets to which this target links.

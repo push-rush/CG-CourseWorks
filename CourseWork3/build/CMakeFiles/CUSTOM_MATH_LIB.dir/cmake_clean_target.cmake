@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libCUSTOM_MATH_LIB.a"
+)

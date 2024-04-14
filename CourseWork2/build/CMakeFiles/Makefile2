@@ -54,10 +54,10 @@ RM = E:/CMake/cmake-3.24.1-windows-x86_64/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:/Code/C++Games/OpenGL/GLUT_Project
+CMAKE_SOURCE_DIR = E:/Code/CG-CourseWorks/CourseWork2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:/Code/C++Games/OpenGL/GLUT_Project/build
+CMAKE_BINARY_DIR = E:/Code/CG-CourseWorks/CourseWork2/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/GLUT_Project.dir/clean
 CMakeFiles/STB_LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/STB_LIB.dir/build.make CMakeFiles/STB_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/STB_LIB.dir/build.make CMakeFiles/STB_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=7,8 "Built target STB_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=7,8 "Built target STB_LIB"
 .PHONY : CMakeFiles/STB_LIB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/STB_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/STB_LIB.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 0
 .PHONY : CMakeFiles/STB_LIB.dir/rule
 
 # Convenience name for target.
@@ -111,14 +111,14 @@ CMakeFiles/STB_LIB.dir/clean:
 CMakeFiles/CUSTOM_MATH_LIB.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CUSTOM_MATH_LIB.dir/build.make CMakeFiles/CUSTOM_MATH_LIB.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CUSTOM_MATH_LIB.dir/build.make CMakeFiles/CUSTOM_MATH_LIB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=1,2 "Built target CUSTOM_MATH_LIB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=1,2 "Built target CUSTOM_MATH_LIB"
 .PHONY : CMakeFiles/CUSTOM_MATH_LIB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CUSTOM_MATH_LIB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CUSTOM_MATH_LIB.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 0
 .PHONY : CMakeFiles/CUSTOM_MATH_LIB.dir/rule
 
 # Convenience name for target.
@@ -138,14 +138,14 @@ CMakeFiles/GLUT_Project.dir/all: CMakeFiles/STB_LIB.dir/all
 CMakeFiles/GLUT_Project.dir/all: CMakeFiles/CUSTOM_MATH_LIB.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLUT_Project.dir/build.make CMakeFiles/GLUT_Project.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GLUT_Project.dir/build.make CMakeFiles/GLUT_Project.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=3,4,5,6 "Built target GLUT_Project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=3,4,5,6 "Built target GLUT_Project"
 .PHONY : CMakeFiles/GLUT_Project.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GLUT_Project.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GLUT_Project.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles 0
 .PHONY : CMakeFiles/GLUT_Project.dir/rule
 
 # Convenience name for target.

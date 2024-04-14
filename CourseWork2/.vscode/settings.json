@@ -48,6 +48,7 @@
         "ratio": "cpp",
         "iomanip": "cpp",
         "pc5.C": "cpp",
-        "cusmath.h": "c"
+        "cusmath.h": "c",
+        "stdlib.h": "c"
     }
 }

@@ -53,10 +53,10 @@ RM = E:/CMake/cmake-3.24.1-windows-x86_64/bin/cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:/Code/C++Games/OpenGL/GLUT_Project
+CMAKE_SOURCE_DIR = E:/Code/CG-CourseWorks/CourseWork2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:/Code/C++Games/OpenGL/GLUT_Project/build
+CMAKE_BINARY_DIR = E:/Code/CG-CourseWorks/CourseWork2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GLUT_Project.dir/depend.make
@@ -71,48 +71,48 @@ include CMakeFiles/GLUT_Project.dir/flags.make
 
 CMakeFiles/GLUT_Project.dir/main.cpp.obj: CMakeFiles/GLUT_Project.dir/flags.make
 CMakeFiles/GLUT_Project.dir/main.cpp.obj: CMakeFiles/GLUT_Project.dir/includes_CXX.rsp
-CMakeFiles/GLUT_Project.dir/main.cpp.obj: E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp
+CMakeFiles/GLUT_Project.dir/main.cpp.obj: E:/Code/CG-CourseWorks/CourseWork2/main.cpp
 CMakeFiles/GLUT_Project.dir/main.cpp.obj: CMakeFiles/GLUT_Project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GLUT_Project.dir/main.cpp.obj"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/main.cpp.obj -MF CMakeFiles/GLUT_Project.dir/main.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/main.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GLUT_Project.dir/main.cpp.obj"
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/main.cpp.obj -MF CMakeFiles/GLUT_Project.dir/main.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/main.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork2/main.cpp
 
 CMakeFiles/GLUT_Project.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLUT_Project.dir/main.cpp.i"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp > CMakeFiles/GLUT_Project.dir/main.cpp.i
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/CG-CourseWorks/CourseWork2/main.cpp > CMakeFiles/GLUT_Project.dir/main.cpp.i
 
 CMakeFiles/GLUT_Project.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLUT_Project.dir/main.cpp.s"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/C++Games/OpenGL/GLUT_Project/main.cpp -o CMakeFiles/GLUT_Project.dir/main.cpp.s
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/CG-CourseWorks/CourseWork2/main.cpp -o CMakeFiles/GLUT_Project.dir/main.cpp.s
 
 CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj: CMakeFiles/GLUT_Project.dir/flags.make
 CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj: CMakeFiles/GLUT_Project.dir/includes_CXX.rsp
-CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj: E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp
+CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj: E:/Code/CG-CourseWorks/CourseWork2/src/Curve.cpp
 CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj: CMakeFiles/GLUT_Project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj -MF CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj"
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj -MF CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/src/Curve.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork2/src/Curve.cpp
 
 CMakeFiles/GLUT_Project.dir/src/Curve.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLUT_Project.dir/src/Curve.cpp.i"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp > CMakeFiles/GLUT_Project.dir/src/Curve.cpp.i
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/CG-CourseWorks/CourseWork2/src/Curve.cpp > CMakeFiles/GLUT_Project.dir/src/Curve.cpp.i
 
 CMakeFiles/GLUT_Project.dir/src/Curve.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLUT_Project.dir/src/Curve.cpp.s"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/C++Games/OpenGL/GLUT_Project/src/Curve.cpp -o CMakeFiles/GLUT_Project.dir/src/Curve.cpp.s
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/CG-CourseWorks/CourseWork2/src/Curve.cpp -o CMakeFiles/GLUT_Project.dir/src/Curve.cpp.s
 
 CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj: CMakeFiles/GLUT_Project.dir/flags.make
 CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj: CMakeFiles/GLUT_Project.dir/includes_CXX.rsp
-CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj: E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp
+CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj: E:/Code/CG-CourseWorks/CourseWork2/src/GLUTCallback.cpp
 CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj: CMakeFiles/GLUT_Project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -MF CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -c E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj"
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -MF CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj.d -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork2/src/GLUTCallback.cpp
 
 CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.i"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp > CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.i
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/Code/CG-CourseWorks/CourseWork2/src/GLUTCallback.cpp > CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.i
 
 CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.s"
-	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/C++Games/OpenGL/GLUT_Project/src/GLUTCallback.cpp -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.s
+	E:/MinGW/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/Code/CG-CourseWorks/CourseWork2/src/GLUTCallback.cpp -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.s
 
 # Object files for target GLUT_Project
 GLUT_Project_OBJECTS = \
@@ -129,10 +129,10 @@ GLUT_Project.exe: CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj
 GLUT_Project.exe: CMakeFiles/GLUT_Project.dir/build.make
 GLUT_Project.exe: libSTB_LIB.a
 GLUT_Project.exe: libCUSTOM_MATH_LIB.a
-GLUT_Project.exe: E:/Code/C++Games/OpenGL/GLUT_Project/External/glut-3.7.6-bin/glut32.lib
+GLUT_Project.exe: E:/Code/CG-CourseWorks/CourseWork2/../External/glut-3.7.6-bin/glut32.lib
 GLUT_Project.exe: CMakeFiles/GLUT_Project.dir/linklibs.rsp
 GLUT_Project.exe: CMakeFiles/GLUT_Project.dir/objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable GLUT_Project.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable GLUT_Project.exe"
 	E:/CMake/cmake-3.24.1-windows-x86_64/bin/cmake.exe -E rm -f CMakeFiles/GLUT_Project.dir/objects.a
 	E:/MinGW/bin/ar.exe qc CMakeFiles/GLUT_Project.dir/objects.a @CMakeFiles/GLUT_Project.dir/objects1.rsp
 	E:/MinGW/bin/g++.exe -finput-charset=UTF-8 -g -static -Wl,--whole-archive CMakeFiles/GLUT_Project.dir/objects.a -Wl,--no-whole-archive -o GLUT_Project.exe -Wl,--out-implib,libGLUT_Project.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/GLUT_Project.dir/linklibs.rsp
@@ -146,6 +146,6 @@ CMakeFiles/GLUT_Project.dir/clean:
 .PHONY : CMakeFiles/GLUT_Project.dir/clean
 
 CMakeFiles/GLUT_Project.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/GLUT_Project.dir/DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2 E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/GLUT_Project.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GLUT_Project.dir/depend
 

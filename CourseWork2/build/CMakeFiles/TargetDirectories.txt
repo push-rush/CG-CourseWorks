@@ -1,5 +1,5 @@
-E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/STB_LIB.dir
-E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/CUSTOM_MATH_LIB.dir
-E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/GLUT_Project.dir
-E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/edit_cache.dir
-E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/rebuild_cache.dir
+E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/STB_LIB.dir
+E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/CUSTOM_MATH_LIB.dir
+E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/GLUT_Project.dir
+E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/edit_cache.dir
+E:/Code/CG-CourseWorks/CourseWork2/build/CMakeFiles/rebuild_cache.dir

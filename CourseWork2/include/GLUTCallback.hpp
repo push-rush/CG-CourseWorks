@@ -1,13 +1,13 @@
 #pragma once
 
+#include <unordered_map>
 #include <iostream>
 using namespace std;
 
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <glut.h>
 
-#include <unordered_map>
+#include "../../GLUT/glut-3.7.6-bin/glut.h"
 
 #include "./CusMath.h"
 #include "./Curve.hpp"

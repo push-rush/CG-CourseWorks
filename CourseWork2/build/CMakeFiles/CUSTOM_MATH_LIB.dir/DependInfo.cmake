@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Code/C++Games/OpenGL/GLUT_Project/src/CusMath.c" "CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj" "gcc" "CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj.d"
+  "E:/Code/CG-CourseWorks/CourseWork2/src/CusMath.c" "CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj" "gcc" "CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.c.obj.d"
   )
 
 # Targets to which this target links.

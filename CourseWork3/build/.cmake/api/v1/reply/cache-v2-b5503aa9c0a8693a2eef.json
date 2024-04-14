@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "e:/Code/C++Games/OpenGL/GLUT_Project/build"
+			"value" : "e:/Code/CG-CourseWorks/CourseWork3/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -587,7 +587,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/C++Games/OpenGL/GLUT_Project/build/CMakeFiles/pkgRedirects"
+			"value" : "E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "E:/Code/C++Games/OpenGL/GLUT_Project"
+			"value" : "E:/Code/CG-CourseWorks/CourseWork3"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1291,7 +1291,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/C++Games/OpenGL/GLUT_Project/build"
+			"value" : "E:/Code/CG-CourseWorks/CourseWork3/build"
 		},
 		{
 			"name" : "GLUT_Project_IS_TOP_LEVEL",
@@ -1315,7 +1315,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "E:/Code/C++Games/OpenGL/GLUT_Project"
+			"value" : "E:/Code/CG-CourseWorks/CourseWork3"
 		},
 		{
 			"name" : "OPENGL_gl_LIBRARY",

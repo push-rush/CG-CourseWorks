@@ -31,7 +31,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "E:/CMake/cmake-3.24.1-windows-x86_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake"
   "E:/CMake/cmake-3.24.1-windows-x86_64/share/cmake-3.24/Modules/Platform/Windows.cmake"
   "E:/CMake/cmake-3.24.1-windows-x86_64/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake"
-  "E:/Code/C++Games/OpenGL/GLUT_Project/CMakeLists.txt"
+  "E:/Code/CG-CourseWorks/CourseWork2/CMakeLists.txt"
   "CMakeFiles/3.24.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.24.1/CMakeRCCompiler.cmake"

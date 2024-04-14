@@ -1,0 +1,37 @@
+[
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/STB_LIB.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/stb_image/stb_image.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/stb_image/stb_image.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/CUSTOM_MATH_LIB.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/CusMath.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/CusMath.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/main.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/main.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/main.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/LineGeneration.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/LineGeneration.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/LineGeneration.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/GLUTCallback.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/GLUTCallback.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/GLUTCallback.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/Button.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/Button.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/Button.cpp"
+},
+{
+  "directory": "E:/Code/CG-CourseWorks/CourseWork3/build",
+  "command": "E:/MinGW/bin/g++.exe  @CMakeFiles/GLUT_Project.dir/includes_CXX.rsp -finput-charset=UTF-8 -g -std=gnu++1z -o CMakeFiles/GLUT_Project.dir/src/PolygonScanConversion.cpp.obj -c E:/Code/CG-CourseWorks/CourseWork3/src/PolygonScanConversion.cpp",
+  "file": "E:/Code/CG-CourseWorks/CourseWork3/src/PolygonScanConversion.cpp"
+}
+]

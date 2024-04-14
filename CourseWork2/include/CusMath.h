@@ -6,7 +6,8 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <glut.h>
+
+#include "../../GLUT/glut-3.7.6-bin/glut.h"
 
 #define ESC 27
 #define Eplison glm::epsilon<float>()
