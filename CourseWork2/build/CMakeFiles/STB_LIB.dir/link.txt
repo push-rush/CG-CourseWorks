@@ -1,2 +1,0 @@
-E:/MinGW/bin/ar.exe qc libSTB_LIB.a CMakeFiles/STB_LIB.dir/src/stb_image/stb_image.cpp.obj
-E:/MinGW/bin/ranlib.exe libSTB_LIB.a

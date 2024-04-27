@@ -1,2 +1,0 @@
-E:/MinGW/bin/ar.exe qc libCUSTOM_MATH_LIB.a CMakeFiles/CUSTOM_MATH_LIB.dir/src/CusMath.cpp.obj
-E:/MinGW/bin/ranlib.exe libCUSTOM_MATH_LIB.a

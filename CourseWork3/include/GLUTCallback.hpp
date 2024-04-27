@@ -1,3 +1,11 @@
+/*
+ * @Author: push-rush 1441488761@qq.com
+ * @Date: 2024-04-19 11:03:10
+ * @LastEditors: push-rush 1441488761@qq.com
+ * @LastEditTime: 2024-04-27 09:52:26
+ * @FilePath: /CG-CourseWorks/CourseWork3/include/GLUTCallback.hpp
+ * @Description: GLUT回调类
+ */
 #pragma once
 
 #include <unordered_map>
@@ -6,8 +14,9 @@ using namespace std;
 
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <GL/freeglut.h>
 
-#include "../../GLUT/glut-3.7.6-bin/glut.h"
+// #include "../../External/glut-3.7.6-bin/glut.h"
 
 #include "./Button.hpp"
 #include "./LineGeneration.hpp"
@@ -39,6 +48,8 @@ private:
     static PolygonScanConversion* mPolyScanConverter;
     static bool mIsScanOver;
     static vector<Point> mScanPoints;
+    static TextButton* sXAxisButton;
+    static TextButton* sYAxisButton;
     
 public:
     static void setWinWidth(int w);

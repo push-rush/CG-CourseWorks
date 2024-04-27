@@ -1,16 +1,25 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.2)
 project(GLUT_Project)
 
-find_package(OpenGL REQUIRED)
+if (POLICY CMP0072)
+  set(OpenGL_GL_PREFERENCE LEGACY)
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-finput-charset=UTF-8")  
 set(CMAKE_C_FLAGS "-finput-charset=UTF-8")  
-set (CMAKE_EXE_LINKER_FLAGS "-static")
+# set (CMAKE_EXE_LINKER_FLAGS "-static")
+
+find_package(OpenGL REQUIRED)
+find_library(GLUT_glut_LIBRARY NAMES glut freeglut
+    PATHS
+    ${OPENGL_LIBRARY_DIR}
+    ${GLUT_ROOT_PATH}/Release
+)
 
 # 添加头文件目录
 include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin)
+# include_directories(${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin)
 
 add_library(STB_LIB STATIC
     ${PROJECT_SOURCE_DIR}/src/stb_image/stb_image.cpp
@@ -34,6 +43,7 @@ target_link_libraries(${PROJECT_NAME}
     PUBLIC
     STB_LIB
     OpenGL::GL
+    glut
     CUSTOM_MATH_LIB
-    ${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin/glut32.lib
+    # ${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin/glut32.lib
 )

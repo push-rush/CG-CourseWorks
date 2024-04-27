@@ -107,7 +107,7 @@ TextButton::TextButton(const int& fontSize)
 : mFontSize(fontSize) { }
 
 TextButton::TextButton(const string& text, const int& fontSize)
-: mText(text), mFontSize(fontSize) { }
+: mText(text), mFontSize(fontSize), mInputOver(false) { }
 
 TextButton::~TextButton() { }
 
@@ -133,3 +133,87 @@ void TextButton::setFontPos(const glm::vec2& pos)
 {
     mFontPos = pos;
 }
+
+void TextButton::processInput(u_char key)
+{
+    // cout << "[TextButton] Key input: " << (int)key << "\n";
+    int len = mInputString.length();
+
+    bool sign = false;
+    switch (key)
+    {   
+        case 43:
+        case 45:
+        {   // 符号，判断是否合法
+            if (len < 1)
+                mInputString.push_back(key), sign = true;
+            break;
+        }
+        case 8:
+        case 127:
+        {   // 输入退格键或删除键，删掉一个字符
+            if (len > 0)
+            {
+                wchar_t wch = mInputString[len - 1];
+                mInputString[len - 1] = 0;
+                mInputString.resize(len - 1);
+                sign = true;
+            }
+            break;
+        }
+        case 13:
+        {   // 输入回车，输入结束
+            mInputOver = true;
+            break;
+        }
+        case 46:
+        {
+            // 输入小数点，要判断位置是否合法
+            if (len > 0)
+            {   // 插入
+                mInputString.push_back(key);
+                sign = true;
+            }
+            else
+            {
+                cout << "Invalid input key: " << key << "\n";
+            }
+            break;
+        }
+        default:
+        {
+            if (key >= '0' && key <= '9')
+            {
+                mInputString.push_back(key);
+                sign = true;
+            }
+            else
+            {
+                cout << "Invalid input key: " << key << "\n";
+            }
+            break;
+        }
+    }
+
+    if (sign)
+    {
+        cout << "Valid input key: " << key << "\n"; 
+    }
+}
+
+void TextButton::clearInput()
+{
+    mInputString.clear();
+    mInputOver = false;
+}
+
+string TextButton::getInputString()
+{
+    return this->mInputString;
+}
+
+bool TextButton::getInputState()
+{
+    return this->mInputOver;
+}
+

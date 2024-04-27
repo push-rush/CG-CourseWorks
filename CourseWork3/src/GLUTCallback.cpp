@@ -38,6 +38,10 @@ bool GLUTCallback::mIsScanOver = false;
 
 vector<Point> GLUTCallback::mScanPoints{};
 
+// 起点坐标图像中心（0，0）
+TextButton* GLUTCallback::sXAxisButton = new TextButton("End X:");
+TextButton* GLUTCallback::sYAxisButton = new TextButton("End Y:");
+
 void GLUTCallback::myDisplay(void)
 {
     // 设置缓存区背景色
@@ -65,6 +69,40 @@ void GLUTCallback::myDisplay(void)
     // 绘制字体
     glm::vec2 pos = glm::vec2{half_w - 190, half_h - 30};
     drawText("Quit: Press ESC...", pos);
+
+    // 绘制x轴和y轴坐标点信息输入框
+    glm::vec2 x_bt_pos = {-150, half_h - 35};
+    glm::vec2 y_bt_pos = {150, half_h - 35};
+    glm::vec2 xy_sz = glm::vec2{135.0f, 50.0f};
+    // 设置线宽和颜色
+    sXAxisButton->setLineWidth(3);
+    sYAxisButton->setLineWidth(3);
+    sXAxisButton->setColor(glm::vec4{0.85f, 0.85f, 0.85f, 1.0f});
+    sYAxisButton->setColor(glm::vec4{0.85f, 0.85f, 0.85f, 1.0f});
+    if (sXAxisButton)
+    {
+        glm::vec2 x_tx_pos = glm::vec2{x_bt_pos.x - xy_sz.x * 0.5f - 60.0f, x_bt_pos.y + xy_sz.y * 0.25f - 15.0f};
+        sXAxisButton->setCenter(x_bt_pos);
+        sXAxisButton->setSize(xy_sz);
+        sXAxisButton->setFontPos(x_tx_pos);
+
+        if (sXAxisButton->getInputString().length() > 0)
+            drawText(sXAxisButton->getInputString(), glm::vec2{x_bt_pos.x - xy_sz.x * 0.5f + 2.0f, x_bt_pos.y - 6.0f}, 24);
+
+        sXAxisButton->draw();
+    }
+    if (sYAxisButton)
+    {
+        glm::vec2 y_tx_pos = glm::vec2{y_bt_pos.x - xy_sz.x * 0.5f - 60.0f, y_bt_pos.y + xy_sz.y * 0.25f - 15.0f};
+        sYAxisButton->setCenter(y_bt_pos);
+        sYAxisButton->setSize(xy_sz);
+        sYAxisButton->setFontPos(y_tx_pos);
+
+        if (sYAxisButton->getInputString().length() > 0)
+            drawText(sYAxisButton->getInputString(), glm::vec2{y_bt_pos.x - xy_sz.x * 0.5f + 2.0f, y_bt_pos.y - 6.0f}, 24);
+
+        sYAxisButton->draw();
+    }
 
     // 绘制直线/多边形
     switch (mCurDrawingState)
@@ -160,7 +198,7 @@ void GLUTCallback::mySubWinDisplay(void)
         switchModeButton->setColor(mLineAlgorToColors[LineGeneration::LineAlgorithmType(Button::EPointByPointComparison)]);
 
         // 设置文本位置
-        glm::vec3 text_pos = glm::vec3{cent.x - sz.x * 0.5f + 10, cent.y - 6, 0.0f};
+        glm::vec2 text_pos = glm::vec2{cent.x - sz.x * 0.5f + 10.0f, cent.y - 6.0f};
         switchModeButton->setFontPos(text_pos);
 
         // 设置文本内容
@@ -253,7 +291,7 @@ void GLUTCallback::myReshape(GLsizei w, GLsizei h)
 
 void GLUTCallback::myKeyboardFunc(unsigned char key, int x, int y)
 {
-    cout << "Main window key input: " << key << "\n";
+    cout << "Main window key input: " << (int)key << "\n";
 
     switch (key)
     {
@@ -264,17 +302,37 @@ void GLUTCallback::myKeyboardFunc(unsigned char key, int x, int y)
         }
         case GLUT_KEY_DOWN:
         case GLUT_ENTERED:
-        {
-
-            break;
-        }
-        default:
+        case 32:
         {
             mIsScanOver = true;
             mPolyScanConverter->setPolygon(mScanPoints);
             mScanPoints.clear();
             break;
         }
+        default:
+        {
+            break;
+        }
+    }
+
+    if (sXAxisButton->isSelected())
+        sXAxisButton->processInput(key);
+    else if (sYAxisButton->isSelected())
+        sYAxisButton->processInput(key);
+    
+    if (sXAxisButton->getInputState() && sYAxisButton->getInputState())
+    {
+        if ((mCounter++) % 2 == 0)
+        {
+            mStartPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+        }
+        else
+        {
+            mEndPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+        }
+        
+        sXAxisButton->clearInput();
+        sYAxisButton->clearInput();
     }
 }
 
@@ -300,29 +358,36 @@ void GLUTCallback::myMouseFunc(int button, int state, int x, int y)
     glm::vec2 mouse_pos = glm::vec2(float(x), float(y));
     mouse_pos.x -= mWinWidth * 0.5f;
     mouse_pos.y = mWinHeight * 0.5f - mouse_pos.y;
-
-    switch (mCurDrawingState)
+    if (state == GLUT_DOWN)
     {
-        case EDrawingLine:
-        {
-            if (mCounter % 2 != 0)
-            {
-                if (!mIsSetting)
-                    mStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
-                else
-                    mEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
-            }
-            mCounter++;
-            break;
-        }
-        case EDrawingPolygon:
-        {
-            mScanPoints.emplace_back(Point{mouse_pos.x, mouse_pos.y});
-            break;
-        }
-        default:
-            break;
+        // 更新x轴输入
+        sXAxisButton->update(mouse_pos);
+        // 更新y轴输入
+        sYAxisButton->update(mouse_pos);
     }
+
+    // switch (mCurDrawingState)
+    // {
+    //     case EDrawingLine:
+    //     {
+    //         if (mCounter % 2 != 0)
+    //         {
+    //             if (!mIsSetting)
+    //                 mStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
+    //             else
+    //                 mEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
+    //         }
+    //         mCounter++;
+    //         break;
+    //     }
+    //     case EDrawingPolygon:
+    //     {
+    //         mScanPoints.emplace_back(Point{mouse_pos.x, mouse_pos.y});
+    //         break;
+    //     }
+    //     default:
+    //         break;
+    // }
 }
 
 void GLUTCallback::mySubMouseFunc(int button, int state, int x, int y)

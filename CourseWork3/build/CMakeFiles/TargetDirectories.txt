@@ -1,5 +1,0 @@
-E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/STB_LIB.dir
-E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/CUSTOM_MATH_LIB.dir
-E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/GLUT_Project.dir
-E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/edit_cache.dir
-E:/Code/CG-CourseWorks/CourseWork3/build/CMakeFiles/rebuild_cache.dir

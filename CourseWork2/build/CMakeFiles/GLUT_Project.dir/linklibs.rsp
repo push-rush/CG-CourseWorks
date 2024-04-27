@@ -1,1 +1,0 @@
- libSTB_LIB.a -lopengl32 libCUSTOM_MATH_LIB.a "E:/Code/CG-CourseWorks/CourseWork2/../External/glut-3.7.6-bin/glut32.lib" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

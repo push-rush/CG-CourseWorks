@@ -5,13 +5,13 @@
 using namespace std;
 
 // glm
-#include "../include/Vendor/glm/glm/glm.hpp"
+#include "./Vendor/glm/glm/glm.hpp"
 #include "../include/Vendor/glm/glm/gtc/matrix_transform.hpp"
 
 #include <GL/gl.h>
 #include <GL/glu.h>
-
-#include "../../GLUT/glut-3.7.6-bin/glut.h"
+#include <GL/freeglut.h>
+// #include "../../External/glut-3.7.6-bin/glut.h"
 
 static void drawText(string text, const glm::vec2& pos, int fontSize = 18)
 {
@@ -112,6 +112,8 @@ class TextButton : public Button
     string mText;
     int mFontSize;
     glm::vec2 mFontPos;
+    string mInputString;
+    bool mInputOver;
 
 public:
     TextButton(const int& fontSize = 18);
@@ -119,8 +121,13 @@ public:
     ~TextButton();
 
     void draw() override;
+    void processInput(u_char key);
+    void clearInput();
 
     void setText(const string& text);
     void setFontSize(const int& size);
     void setFontPos(const glm::vec2& pos);
+    
+    string getInputString();
+    bool getInputState();
 };
