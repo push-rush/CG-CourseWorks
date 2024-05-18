@@ -7,7 +7,11 @@ using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-#include "../../GLUT/glut-3.7.6-bin/glut.h"
+#ifdef _WIN32
+    #include "../../External/glut-3.7.6-bin/glut.h"
+#else
+    #include <GL/freeglut.h>
+#endif
 
 #include "./CusMath.h"
 #include "./Curve.hpp"

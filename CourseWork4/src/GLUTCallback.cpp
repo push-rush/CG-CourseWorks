@@ -6,10 +6,13 @@ int GLUTCallback::mWinHeight = 1080;
 int GLUTCallback::mSubWinWidth = 1920;
 int GLUTCallback::mSubWinHeight = 1080;
 
+glm::vec2 GLUTCallback::mLineStartPoint = glm::vec2{0.0f, 0.0f};
+glm::vec2 GLUTCallback::mLineEndPoint = glm::vec2{0.0f, 0.0f};
 LineGeneration* GLUTCallback::mLineGeneration = new LineGeneration();
 
-glm::vec2 GLUTCallback::mStartPoint = glm::vec2{0.0f, 0.0f};
-glm::vec2 GLUTCallback::mEndPoint = glm::vec2{0.0f, 0.0f};
+CircleGenerator* GLUTCallback::mCircleGenerator = new CircleGenerator();
+glm::vec2 GLUTCallback::mCircleCenter = glm::vec2{0.0f, 0.0f};
+float GLUTCallback::mCircleRadius = 0.0f;
 
 int GLUTCallback::mCounter = 0;
 bool GLUTCallback::mIsSetting = false;
@@ -30,6 +33,22 @@ unordered_map<LineGeneration::LineAlgorithmType, glm::vec4> GLUTCallback::mLineA
     {(LineGeneration::LineAlgorithmType)(Button::EPointByPointComparison), glm::vec4{0.35f, 0.45f, 0.85f, 1.0f}},
 };
 
+unordered_map<CircleGenerator::CircleAlgorithmType, TextButton*> GLUTCallback::mCircleMapToButtons = {
+    {CircleGenerator::EDDA, new TextButton()},
+    {CircleGenerator::EMidpointCircle, new TextButton()},
+    {CircleGenerator::ESlopeComparison, new TextButton()},
+    {CircleGenerator::EBresenham, new TextButton()},
+    {(CircleGenerator::CircleAlgorithmType)(Button::EPointByPointComparison), new TextButton},
+};
+
+unordered_map<CircleGenerator::CircleAlgorithmType, glm::vec4> GLUTCallback::mCircleAlgorToColors = {
+    {CircleGenerator::EDDA, glm::vec4{0.25f, 0.25f, 0.75f, 1.0f}},
+    {CircleGenerator::EMidpointCircle, glm::vec4{0.65f, 0.25f, 0.25f, 1.0f}},
+    {CircleGenerator::ESlopeComparison, glm::vec4{0.25f, 0.65f, 0.25f, 1.0f}},
+    {CircleGenerator::EBresenham, glm::vec4{0.75f, 0.75f, 0.35f, 1.0f}},
+    {(CircleGenerator::CircleAlgorithmType)(Button::EPointByPointComparison), glm::vec4{0.35f, 0.45f, 0.85f, 1.0f}},
+};
+
 GLUTCallback::DrawingState GLUTCallback::mCurDrawingState = GLUTCallback::EDrawingLine;
 
 PolygonScanConversion* GLUTCallback::mPolyScanConverter = new PolygonScanConversion();
@@ -41,6 +60,13 @@ vector<Point> GLUTCallback::mScanPoints{};
 // 起点坐标图像中心（0，0）
 TextButton* GLUTCallback::sXAxisButton = new TextButton("End X:");
 TextButton* GLUTCallback::sYAxisButton = new TextButton("End Y:");
+TextButton* GLUTCallback::sRadiusButton = new TextButton("Radius:");
+
+unordered_map<GLUTCallback::DrawingState, std::string> GLUTCallback::mDrawingMapToNames = {
+    {GLUTCallback::EDrawingLine, "Line"},
+    {GLUTCallback::EDrawingPolygon, "Polygon"},
+    {GLUTCallback::EDrawingCircle, "Circle"},
+};
 
 void GLUTCallback::myDisplay(void)
 {
@@ -73,12 +99,19 @@ void GLUTCallback::myDisplay(void)
     // 绘制x轴和y轴坐标点信息输入框
     glm::vec2 x_bt_pos = {-150, half_h - 35};
     glm::vec2 y_bt_pos = {150, half_h - 35};
+    glm::vec2 radius_bt_pos = {0, half_h - 100};
+
     glm::vec2 xy_sz = glm::vec2{135.0f, 50.0f};
+    
     // 设置线宽和颜色
     sXAxisButton->setLineWidth(3);
     sYAxisButton->setLineWidth(3);
+    sRadiusButton->setLineWidth(3);
+
     sXAxisButton->setColor(glm::vec4{0.85f, 0.85f, 0.85f, 1.0f});
     sYAxisButton->setColor(glm::vec4{0.85f, 0.85f, 0.85f, 1.0f});
+    sRadiusButton->setColor(glm::vec4{0.85f, 0.85f, 0.85f, 1.0f});
+    
     if (sXAxisButton)
     {
         glm::vec2 x_tx_pos = glm::vec2{x_bt_pos.x - xy_sz.x * 0.5f - 60.0f, x_bt_pos.y + xy_sz.y * 0.25f - 15.0f};
@@ -103,8 +136,20 @@ void GLUTCallback::myDisplay(void)
 
         sYAxisButton->draw();
     }
+    if (sRadiusButton)
+    {
+        glm::vec2 radius_tx_pos = glm::vec2{radius_bt_pos.x - xy_sz.x * 0.5f - 60.0f, radius_bt_pos.y + xy_sz.y * 0.25f - 15.0f};
+        sRadiusButton->setCenter(radius_bt_pos);
+        sRadiusButton->setSize(xy_sz);
+        sRadiusButton->setFontPos(radius_tx_pos);
 
-    // 绘制直线/多边形
+        if (sRadiusButton->getInputString().length() > 0)
+            drawText(sRadiusButton->getInputString(), glm::vec2{radius_bt_pos.x - xy_sz.x * 0.5f + 2.0f, radius_bt_pos.y - 6.0f}, 24);
+
+        sRadiusButton->draw();
+    }
+
+    // 绘制直线/多边形/圆
     switch (mCurDrawingState)
     {   
         case EDrawingLine:
@@ -118,7 +163,7 @@ void GLUTCallback::myDisplay(void)
 	
             // 绘制邻近直线的像素点
             glBegin(GL_POINTS);
-                mLineGeneration->drawLine(mStartPoint, mEndPoint);
+                mLineGeneration->drawLine(mLineStartPoint, mLineEndPoint);
             glEnd();
     
     	    auto afterTime = std::chrono::steady_clock::now();
@@ -164,6 +209,19 @@ void GLUTCallback::myDisplay(void)
             glBegin(GL_POINTS);
                 mPolyScanConverter->draw();
             glEnd();
+            break;
+        }
+        case EDrawingCircle:
+        {   // 绘制圆形
+            // 设置颜色
+            glm::vec4 color = mCircleAlgorToColors[mCircleGenerator->getAlgorithmType()];
+            glColor4f(color.x, color.y, color.z, color.w);
+
+            // 绘制邻近直线的像素点
+            glBegin(GL_POINTS);
+                mCircleGenerator->drawCircle(mCircleCenter, mCircleRadius);
+            glEnd();
+
             break;
         }
         default:
@@ -226,7 +284,7 @@ void GLUTCallback::mySubWinDisplay(void)
         switchModeButton->setFontPos(text_pos);
 
         // 设置文本内容
-        string mode_text = mCurDrawingState < 1 ? "Line" : "Polygon";
+        string mode_text = mDrawingMapToNames[mCurDrawingState];
         switchModeButton->setText("SwitchMode: " + mode_text);
 
         // 绘制
@@ -340,23 +398,50 @@ void GLUTCallback::myKeyboardFunc(unsigned char key, int x, int y)
     }
 
     if (sXAxisButton->isSelected())
-        sXAxisButton->processInput(key);
-    else if (sYAxisButton->isSelected())
-        sYAxisButton->processInput(key);
-    
-    if (sXAxisButton->getInputState() && sYAxisButton->getInputState())
     {
-        if ((mCounter++) % 2 == 0)
+        sXAxisButton->processInput(key);
+    }
+    else if (sYAxisButton->isSelected())
+    {
+        sYAxisButton->processInput(key);
+    }
+    else if (sRadiusButton->isSelected())
+    {
+        sRadiusButton->processInput(key);
+
+        if (sRadiusButton->getInputState())
         {
-            mStartPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+            mCircleRadius= stoi(sRadiusButton->getInputString());
+            sRadiusButton->clearInput();
         }
-        else
+    }
+    
+    if (sXAxisButton->isSelected() || sYAxisButton->isSelected())
+    {
+        if (sXAxisButton->getInputState() && sYAxisButton->getInputState())
         {
-            mEndPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+            if ((mCounter++) % 2 == 0)
+            {
+                mLineStartPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+            }
+            else
+            {
+                mLineEndPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+            }
+            
+            sXAxisButton->clearInput();
+            sYAxisButton->clearInput();
         }
-        
-        sXAxisButton->clearInput();
-        sYAxisButton->clearInput();
+    }
+
+    if (mCurDrawingState == EDrawingCircle)
+    {
+        if (sXAxisButton->getInputState() && sYAxisButton->getInputState())
+        {
+            mCircleCenter = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+            sXAxisButton->clearInput();
+            sYAxisButton->clearInput();
+        }
     }
 }
 
@@ -388,6 +473,9 @@ void GLUTCallback::myMouseFunc(int button, int state, int x, int y)
         sXAxisButton->update(mouse_pos);
         // 更新y轴输入
         sYAxisButton->update(mouse_pos);
+
+        // 更新圆半径
+        sRadiusButton->update(mouse_pos);
     }
 
     // switch (mCurDrawingState)
@@ -397,9 +485,9 @@ void GLUTCallback::myMouseFunc(int button, int state, int x, int y)
     //         if (mCounter % 2 != 0)
     //         {
     //             if (!mIsSetting)
-    //                 mStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
+    //                 mLineStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
     //             else
-    //                 mEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
+    //                 mLineEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
     //         }
     //         mCounter++;
     //         break;

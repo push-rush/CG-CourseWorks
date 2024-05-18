@@ -8,9 +8,21 @@ set(CMAKE_CXX_FLAGS "-finput-charset=UTF-8")
 set(CMAKE_C_FLAGS "-finput-charset=UTF-8")  
 set (CMAKE_EXE_LINKER_FLAGS "-static")
 
+# 如果是linux平台，则添加特定的编译选项或链接库
+if(UNIX)
+    find_library(GLUT_glut_LIBRARY NAMES glut freeglut
+        PATHS
+        ${OPENGL_LIBRARY_DIR}
+        ${GLUT_ROOT_PATH}/Release
+    )
+    set(GLUT_LIBRARY glut)
+elseif(WIN32)
+    include_directories(${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin)
+    set(GLUT_LIBRARY ${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin/glut32.lib)
+endif()
+
 # 添加头文件目录
 include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin)
 
 add_library(STB_LIB STATIC
     ${PROJECT_SOURCE_DIR}/src/stb_image/stb_image.cpp
@@ -33,5 +45,5 @@ target_link_libraries(${PROJECT_NAME}
     STB_LIB
     OpenGL::GL
     CUSTOM_MATH_LIB
-    ${PROJECT_SOURCE_DIR}/../External/glut-3.7.6-bin/glut32.lib
+    ${GLUT_LIBRARY}
 )

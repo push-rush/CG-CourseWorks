@@ -43,6 +43,7 @@ add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/src/GLUTCallback.cpp
     ${PROJECT_SOURCE_DIR}/src/Button.cpp
     ${PROJECT_SOURCE_DIR}/src/PolygonScanConversion.cpp
+    ${PROJECT_SOURCE_DIR}/src/CircleGenerator.cpp
 )
 
 # 链接操作

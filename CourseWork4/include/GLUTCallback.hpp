@@ -25,6 +25,7 @@ using namespace std;
 #include "./Button.hpp"
 #include "./LineGeneration.hpp"
 #include "./PolygonScanConversion.hpp"
+#include "./CircleGenerator.hpp"
 
 class GLUTCallback
 {
@@ -33,6 +34,7 @@ public:
     {
         EDrawingLine,
         EDrawingPolygon,
+        EDrawingCircle,
         EDrawingStateNums
     };
 
@@ -41,19 +43,36 @@ private:
     static int mWinHeight;
     static int mSubWinWidth;
     static int mSubWinHeight;
+
+    static unordered_map<DrawingState, std::string> mDrawingMapToNames;
+
+    static glm::vec2 mLineStartPoint;
+    static glm::vec2 mLineEndPoint;
+    
     static LineGeneration* mLineGeneration;
-    static glm::vec2 mStartPoint;
-    static glm::vec2 mEndPoint;
+    static CircleGenerator* mCircleGenerator;
+
+    static glm::vec2 mCircleCenter;
+    static float mCircleRadius;
+    
     static bool mIsSetting;
     static int mCounter;
+    
     static unordered_map<LineGeneration::LineAlgorithmType, TextButton*> mLineMapToButtons;
     static unordered_map<LineGeneration::LineAlgorithmType, glm::vec4> mLineAlgorToColors;
+
+    static unordered_map<CircleGenerator::CircleAlgorithmType, TextButton*> mCircleMapToButtons;
+    static unordered_map<CircleGenerator::CircleAlgorithmType, glm::vec4> mCircleAlgorToColors;
+    
     static DrawingState mCurDrawingState;
     static PolygonScanConversion* mPolyScanConverter;
+    
     static bool mIsScanOver;
+    
     static vector<Point> mScanPoints;
     static TextButton* sXAxisButton;
     static TextButton* sYAxisButton;
+    static TextButton* sRadiusButton;
     
 public:
     static void setWinWidth(int w);
