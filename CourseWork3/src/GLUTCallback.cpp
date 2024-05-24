@@ -19,8 +19,9 @@ unordered_map<LineGeneration::LineAlgorithmType, TextButton*> GLUTCallback::mLin
     {LineGeneration::EMidpointLine, new TextButton()},
     {LineGeneration::ESlopeComparison, new TextButton()},
     {LineGeneration::EBresenham, new TextButton()},
-    {(LineGeneration::LineAlgorithmType)(Button::EPointByPointComparison), new TextButton},
+    {(LineGeneration::LineAlgorithmType)(Button::EPointByPointComparison), new TextButton()},
 };
+
 
 unordered_map<LineGeneration::LineAlgorithmType, glm::vec4> GLUTCallback::mLineAlgorToColors = {
     {LineGeneration::EDDA, glm::vec4{0.25f, 0.25f, 0.75f, 1.0f}},
@@ -28,6 +29,14 @@ unordered_map<LineGeneration::LineAlgorithmType, glm::vec4> GLUTCallback::mLineA
     {LineGeneration::ESlopeComparison, glm::vec4{0.25f, 0.65f, 0.25f, 1.0f}},
     {LineGeneration::EBresenham, glm::vec4{0.75f, 0.75f, 0.35f, 1.0f}},
     {(LineGeneration::LineAlgorithmType)(Button::EPointByPointComparison), glm::vec4{0.35f, 0.45f, 0.85f, 1.0f}},
+};
+
+unordered_map<PolygonScanConversion::PloygonAlgorithmType, TextButton*> GLUTCallback::mPolygonMapToButtons = {
+    {PolygonScanConversion::EPointByPoint, new TextButton()},
+    {PolygonScanConversion::EScanLineConversion, new TextButton()},
+    {PolygonScanConversion::EEdgePadding, new TextButton()},
+    {PolygonScanConversion::EEdgeMark, new TextButton()},
+    {PolygonScanConversion::EFloodFill, new TextButton()},
 };
 
 GLUTCallback::DrawingState GLUTCallback::mCurDrawingState = GLUTCallback::EDrawingLine;
@@ -74,6 +83,7 @@ void GLUTCallback::myDisplay(void)
     glm::vec2 x_bt_pos = {-150, half_h - 35};
     glm::vec2 y_bt_pos = {150, half_h - 35};
     glm::vec2 xy_sz = glm::vec2{135.0f, 50.0f};
+
     // 设置线宽和颜色
     sXAxisButton->setLineWidth(3);
     sYAxisButton->setLineWidth(3);
@@ -91,6 +101,7 @@ void GLUTCallback::myDisplay(void)
 
         sXAxisButton->draw();
     }
+
     if (sYAxisButton)
     {
         glm::vec2 y_tx_pos = glm::vec2{y_bt_pos.x - xy_sz.x * 0.5f - 60.0f, y_bt_pos.y + xy_sz.y * 0.25f - 15.0f};
@@ -160,10 +171,22 @@ void GLUTCallback::myDisplay(void)
                 glEnd();
             }
 
+            glLineWidth(10);
+            auto points = mPolyScanConverter->getInputPoints();
+            if (points.size() > 0)
+            {
+                int sz = points.size();
+                glBegin(GL_LINE_LOOP);
+                    for (int i = 0; i < sz; i++)
+                    {
+                        glVertex2i(points[i].x, points[i].y);
+                    }
+                glEnd();
+            }
+
             glPointSize(1);
-            glBegin(GL_POINTS);
-                mPolyScanConverter->draw();
-            glEnd();
+            mPolyScanConverter->draw();
+            
             break;
         }
         default:
@@ -281,7 +304,45 @@ void GLUTCallback::mySubWinDisplay(void)
         }
         case EDrawingPolygon:
         {
+            for (int i = 1; i < PolygonScanConversion::EAlgorithmNum; i++)
+            {
+                glm::vec2 lt = {-half_w + 5, half_h - (i + 1) * 60 - 15};
+                glm::vec2 rb = {half_w - 10, half_h - (i + 2) * 60};
+                
+                if (mPolygonMapToButtons.count((PolygonScanConversion::PloygonAlgorithmType)i))
+                {
+                    TextButton* b = mPolygonMapToButtons[(PolygonScanConversion::PloygonAlgorithmType)i];
+                    b->setCenter((lt + rb) * 0.5f);
+                    b->setSize(glm::vec2{rb.x - lt.x, lt.y - rb.y});
+                    
+                    if (b->isSelected())
+                    {
+                        mPolyScanConverter->setAlgorithmType((PolygonScanConversion::PloygonAlgorithmType)i);
+                        // 高亮显示当前选中直线生成算法
+                        b->setLineWidth(5);
+                        b->setColor(glm::vec4(0.45f, 0.45f, 0.75f, 1.0f));
+                    }
+                    else if (mPolyScanConverter->getAlgorithmType() == (PolygonScanConversion::PloygonAlgorithmType)i)
+                    {
+                        b->setIsSelected(true);
+                    }
+                    else
+                    {
+                        b->setLineWidth(2);
+                        b->setColor(glm::vec4(0.25f, 0.25f, 0.35f, 1.0f));
+                    }
 
+                    // 设置文本位置
+                    glm::vec3 text_pos = glm::vec3{lt.x + 10, (lt.y + rb.y) * 0.5 - 10, 0.0f};
+                    b->setFontPos(text_pos);
+
+                    // 设置文本内容
+                    b->setText(PolygonScanConversion::getPolygonAlgorName((PolygonScanConversion::PloygonAlgorithmType)i));
+
+                    // 绘制
+                    b->draw();
+                }
+            }
             break;
         }
         default:
@@ -328,6 +389,7 @@ void GLUTCallback::myKeyboardFunc(unsigned char key, int x, int y)
         case GLUT_ENTERED:
         case 32:
         {
+            cout << "Poly scan points input..." << "\n";
             mIsScanOver = true;
             mPolyScanConverter->setPolygon(mScanPoints);
             mScanPoints.clear();
@@ -346,17 +408,20 @@ void GLUTCallback::myKeyboardFunc(unsigned char key, int x, int y)
     
     if (sXAxisButton->getInputState() && sYAxisButton->getInputState())
     {
+        glm::vec2 point = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
+
         if ((mCounter++) % 2 == 0)
-        {
-            mStartPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
-        }
+            mStartPoint = point;
         else
-        {
-            mEndPoint = glm::vec2{stoi(sXAxisButton->getInputString()), stoi(sYAxisButton->getInputString())};
-        }
+            mEndPoint = point;
         
         sXAxisButton->clearInput();
         sYAxisButton->clearInput();
+
+        if (mCurDrawingState == EDrawingPolygon)
+        {
+            mScanPoints.emplace_back(Point{point.x, point.y});
+        }
     }
 }
 
@@ -390,28 +455,32 @@ void GLUTCallback::myMouseFunc(int button, int state, int x, int y)
         sYAxisButton->update(mouse_pos);
     }
 
-    // switch (mCurDrawingState)
-    // {
-    //     case EDrawingLine:
-    //     {
-    //         if (mCounter % 2 != 0)
-    //         {
-    //             if (!mIsSetting)
-    //                 mStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
-    //             else
-    //                 mEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
-    //         }
-    //         mCounter++;
-    //         break;
-    //     }
-    //     case EDrawingPolygon:
-    //     {
-    //         mScanPoints.emplace_back(Point{mouse_pos.x, mouse_pos.y});
-    //         break;
-    //     }
-    //     default:
-    //         break;
-    // }
+    // 选中输入框后，直接退出
+    if (sXAxisButton->isSelected() || sYAxisButton->isSelected())
+        return;
+
+    switch (mCurDrawingState)
+    {
+        case EDrawingLine:
+        {
+            if (mCounter % 2 != 0)
+            {
+                if (!mIsSetting)
+                    mStartPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = true;
+                else
+                    mEndPoint = glm::vec2(mouse_pos.x, mouse_pos.y), mIsSetting = false;
+            }
+            mCounter++;
+            break;
+        }
+        case EDrawingPolygon:
+        {
+            mScanPoints.emplace_back(Point{mouse_pos.x, mouse_pos.y});
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 void GLUTCallback::mySubMouseFunc(int button, int state, int x, int y)

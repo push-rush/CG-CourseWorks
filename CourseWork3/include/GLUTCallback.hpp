@@ -41,15 +41,19 @@ private:
     static int mWinHeight;
     static int mSubWinWidth;
     static int mSubWinHeight;
-    static LineGeneration* mLineGeneration;
-    static glm::vec2 mStartPoint;
-    static glm::vec2 mEndPoint;
     static bool mIsSetting;
     static int mCounter;
+
+    static glm::vec2 mStartPoint;
+    static glm::vec2 mEndPoint;
+    static LineGeneration* mLineGeneration;
     static unordered_map<LineGeneration::LineAlgorithmType, TextButton*> mLineMapToButtons;
     static unordered_map<LineGeneration::LineAlgorithmType, glm::vec4> mLineAlgorToColors;
+
     static DrawingState mCurDrawingState;
+
     static PolygonScanConversion* mPolyScanConverter;
+    static unordered_map<PolygonScanConversion::PloygonAlgorithmType, TextButton*> mPolygonMapToButtons;
     static bool mIsScanOver;
     static vector<Point> mScanPoints;
     static TextButton* sXAxisButton;

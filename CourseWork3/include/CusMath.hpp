@@ -8,6 +8,9 @@
  */
 #pragma once
 
+#include <iostream>
+#include <vector>
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -25,9 +28,9 @@
 #define Eplison glm::epsilon<float>()
 #define PI 3.14159265358979323846
 
-static void cusPerspective(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar)
+static void cusPerspective(GLfloat fovy, GLfloat aspect, GLfloat zNear, GLfloat zFar)
 {
-    GLdouble xmin, xmax, ymin, ymax;
+    GLfloat xmin, xmax, ymin, ymax;
     
     ymax = zNear * tan(fovy * PI / 360.0);
     ymin = -ymax;
@@ -86,4 +89,40 @@ static bool raySegmentIntersection(Point rayStart, Point rayDir, Segment segment
     if (t >= 0 && u >= 0 && u <= 1) 
         return true;
     return false;
+}
+
+// 计算三角形的重心
+static Point calculateTriangleCentroid(const Point& p1, const Point& p2, const Point& p3) 
+{
+    float cx = (p1.x + p2.x + p3.x) / 3.0;
+    float cy = (p1.y + p2.y + p3.y) / 3.0;
+    return {cx, cy};
+}
+
+// 计算多边形的重心
+static Point calculatePolygonCentroid(const std::vector<Point>& polygon) 
+{
+    float centroidX = 0, centroidY = 0;
+    float signedArea = 0;
+    float x0, y0, x1, y1;
+    float a;
+
+    int numVertices = polygon.size();
+    for (int i = 0; i < numVertices; ++i) 
+    {
+        x0 = polygon[i].x;
+        y0 = polygon[i].y;
+        x1 = polygon[(i + 1) % numVertices].x;
+        y1 = polygon[(i + 1) % numVertices].y;
+        a = x0 * y1 - x1 * y0;
+        signedArea += a;
+        centroidX += (x0 + x1) * a;
+        centroidY += (y0 + y1) * a;
+    }
+
+    signedArea *= 0.5;
+    centroidX /= (6.0 * signedArea);
+    centroidY /= (6.0 * signedArea);
+
+    return Point{float(centroidX), float(centroidY)};
 }
