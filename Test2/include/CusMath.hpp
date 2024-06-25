@@ -190,6 +190,27 @@ static TMat MatByMat(const TMat& m1, const TMat2& m2)
     return result;
 }
 
+template<typename T>
+static T transposeMatrix(const T& matrix) 
+{
+    // 获取矩阵的行数和列数
+    size_t rows = matrix.size();
+    size_t cols = matrix[0].size();
+
+    // 创建一个新的矩阵来存储转置结果
+    T transposed(cols, Vectorf(rows));
+
+    // 执行转置操作
+    for (size_t i = 0; i < rows; ++i) 
+    {
+        for (size_t j = 0; j < cols; ++j) 
+        {
+            transposed[j][i] = matrix[i][j];
+        }
+    }
+    return transposed;
+}
+
 // 计算三角形的重心
 static Point calculateTriangleCentroid(const Point& p1, const Point& p2, const Point& p3) 
 {
@@ -224,4 +245,16 @@ static Point calculatePolygonCentroid(const std::vector<Point>& polygon)
     centroidY /= (6.0 * signedArea);
 
     return Point{float(centroidX), float(centroidY)};
+}
+
+static bool isPerfectSquare(int number) 
+{
+    // 计算给定数的开平方值
+    double sqrtValue = std::sqrt(number);
+
+    // 将开平方值向下取整
+    int sqrtInt = std::floor(sqrtValue);
+
+    // 判断开平方值是否等于原始数
+    return (sqrtInt * sqrtInt == number);
 }

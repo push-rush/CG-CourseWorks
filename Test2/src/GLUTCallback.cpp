@@ -71,6 +71,7 @@ unordered_map<CurveSurfaceGenerator::CurveAlogrithmType, TextButton*> GLUTCallba
     {CurveSurfaceGenerator::EFergusonCurve, new TextButton()},
     {CurveSurfaceGenerator::EBezierCurve, new TextButton()},
     {CurveSurfaceGenerator::EBSplineCurve, new TextButton()},
+    {CurveSurfaceGenerator::EBezierSurface, new TextButton()},
 };
 
 unordered_map<CurveSurfaceGenerator::CurveAlogrithmType, glm::vec4> mCurveAlgorToColors = {
@@ -78,6 +79,7 @@ unordered_map<CurveSurfaceGenerator::CurveAlogrithmType, glm::vec4> mCurveAlgorT
     {CurveSurfaceGenerator::EFergusonCurve, glm::vec4{0.65f, 0.25f, 0.25f, 1.0f}},
     {CurveSurfaceGenerator::EBezierCurve, glm::vec4{0.25f, 0.65f, 0.25f, 1.0f}},
     {CurveSurfaceGenerator::EBSplineCurve, glm::vec4{0.75f, 0.75f, 0.35f, 1.0f}},
+    {CurveSurfaceGenerator::EBezierSurface, glm::vec4{0.25f, 0.65f, 0.25f, 1.0f}}
 };
 
 GLUTCallback::DrawingState GLUTCallback::mCurDrawingState = GLUTCallback::EDrawingLine;
@@ -174,11 +176,15 @@ void GLUTCallback::myDisplay(void)
         drawText(to_string(i), glm::vec2{-40, i - 7});
     }
 
-    if (!mIsMouseLeft && 
+    if (!mIsMouseLeft && !sModeSwitchButton->isSelected() &&
         !(sXAxisButton->isSelected() || sYAxisButton->isSelected() || sRadiusButton->isSelected() || 
             mCurveGenerator->getParamAdjButton()->isSelected())
     )
     {
+        glPointSize(8);
+        glBegin(GL_POINTS);
+            glVertex2i(int(mMousePos.x), int(mMousePos.y));
+        glEnd();
         drawText("(" + to_string(int(mMousePos.x)) + ", " + to_string(int(mMousePos.y)) + ")", glm::vec2{mMousePos.x + 20, mMousePos.y + 20});
     }
 

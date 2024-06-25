@@ -22,6 +22,7 @@ public:
         EHermiteCurve,
         EFergusonCurve,
         EBezierCurve,
+        EBezierSurface,
         EBSplineCurve,
         ECurveAlgorNums
     };
